@@ -1,0 +1,38 @@
+<!--
+  ~ Copyright (c) Jupyter Development Team.
+  ~ Distributed under the terms of the Modified BSD License.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script id="jupyter-config-data" type="application/json">
+{
+  "appVersion": "4.1.0-alpha.1",
+  "baseUrl": "https://jupyterm.ufo.k0s.io",
+  "frontendUrl": "/",
+  "fullStaticUrl": "/",
+  "terminalsAvailable": true,
+  "token": "",
+  "wsUrl": "wss://jupyterm.ufo.k0s.io"
+}
+  </script>
+
+  <script src="./bundle.js" main="index"></script>
+</head>
+<body>
+
+  <script type="text/javascript">
+    /* Remove token from URL. */
+    (function () {
+      var parsedUrl = new URL(window.location.href);
+      if (parsedUrl.searchParams.get('token')) {
+        parsedUrl.searchParams.delete('token');
+        window.history.replaceState({ }, '', parsedUrl.href);
+      }
+    })();
+  </script>
+
+</body>
+</html>
